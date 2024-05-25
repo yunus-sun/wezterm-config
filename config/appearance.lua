@@ -1,13 +1,15 @@
 local wezterm = require('wezterm')
-local gpu_adapters = require('utils.gpu_adapter')
+-- BUG: cause slow startup and wrong display.
+-- local gpu_adapters = require('utils.gpu_adapter')
 local colors = require('colors.custom')
 
 return {
    animation_fps = 60,
    max_fps = 60,
-   front_end = 'WebGpu',
-   webgpu_power_preference = 'HighPerformance',
-   webgpu_preferred_adapter = gpu_adapters:pick_best(),
+-- ISSUE: seems no webgpu, so change to OpenGL
+   front_end = 'OpenGL',
+   -- webgpu_power_preference = 'HighPerformance',
+   -- webgpu_preferred_adapter = gpu_adapters:pick_best(),
 
    -- color scheme
    colors = colors,
